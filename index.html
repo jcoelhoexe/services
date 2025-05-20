@@ -1,180 +1,179 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JP-SOFT - Serviços de TI</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0a183a;
-      color: #e0f0f0;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    canvas#matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-
-    header, .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    header {
-      background-color: #122828cc;
-      text-align: center;
-      padding: 20px;
-    }
-
-    header img {
-      max-width: 150px;
-    }
-
-    h1 {
-      color: #9de1c0;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      background-color: #1e2f2ecc;
-      border-radius: 10px;
-    }
-
-    .servico {
-      border-bottom: 1px solid #2e4e4c;
-      padding: 10px 0;
-    }
-
-    form {
-      background-color: #203636cc;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
-    label, input, textarea, select {
-      display: block;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    input, textarea, select {
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    button {
-      background-color: #9de1c0;
-      color: #000;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .whatsapp {
-      background-color: #25d366;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: block;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <canvas id="matrix"></canvas>
-  <header>
-    <img src="JPSOFT-LOGO.jpeg" alt="JP-Soft Logo">
-    <h1>JP-SOFT</h1>
-    <p>Serviços de Tecnologia da Informação</p>
-  </header>
-
-  <div class="container">
-    <h2>Serviços Prestados</h2>
-    <div class="servico">Criação de Site e Aplicativos Mobile</div>
-    <div class="servico">Criação de SOFTWARE Empresarial</div>
-    <div class="servico">Manutenção em Computadores</div>
-    <div class="servico">Montagem de Computadores</div>
-    <div class="servico">Montagem Gamer/Empresarial</div>
-    <div class="servico">Recuperar Email / Instagram</div>
-    <div class="servico">Restauração de Backup</div>
-
-    <h2>Solicite um Serviço</h2>
-    <form>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="servico">Serviço desejado:</label>
-      <select id="servico" name="servico" required>
-        <option value="site">Criação de Site e Aplicativos Mobile</option>
-        <option value="software">Criação de Software Empresarial</option>
-        <option value="manutencao">Manutenção em Computadores</option>
-        <option value="montagem">Montagem de Computadores</option>
-        <option value="gamer">Montagem Gamer/Empresarial</option>
-        <option value="recuperar">Recuperar Email/Instagram</option>
-        <option value="backup">Restauração de Backup</option>
-      </select>
-
-      <label for="mensagem">Mensagem adicional:</label>
-      <textarea id="mensagem" name="mensagem" rows="4"></textarea>
-
-      <button type="submit">Enviar Solicitação</button>
-    </form>
-
-    <a class="whatsapp" href="https://wa.me/message/ANSLT5SPKWPNC1" target="_blank">
-      💬 Chamar no WhatsApp
-    </a>
-  </div>
-
-  <script>
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%&";
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-
-    function draw() {
-      ctx.fillStyle = "rgba(10, 24, 58, 0.1)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#e0f0f0";
-      ctx.font = fontSize + "px monospace";
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação de Serviço</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a183a;
+            color: #e0f0f0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            z-index: 1;
         }
 
-        drops[i]++;
-      }
-    }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #1e2f2ecc;
+            border-radius: 10px;
+        }
 
-    setInterval(draw, 33);
-  </script>
+        form {
+            background-color: #203636cc;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        label, input, textarea, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            background-color: #9de1c0;
+            color: #000;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #orcamento {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .whatsapp {
+            background-color: #25d366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function calcularOrcamento() {
+            const servico = document.getElementById("servico").value;
+            let valorEstimado;
+
+            switch (servico) {
+                case "CriacaoDesingv1":
+                    valorEstimado = "R$ 80,00";
+                    break;
+                case "CriacaoDesingv2":
+                    valorEstimado = "R$ 250,00";
+                    break;
+                case "CriacaoDesing":
+                    valorEstimado = "R$ 100,00";
+                    break;
+                case "CriacaoSite":
+                    valorEstimado = "R$ 375,00";
+                    break;
+				case "CriacaoSiteEcomerce":
+                    valorEstimado = "R$ 1.500,00";	
+                    break;
+				case "CriacaoSiteEnterprise":
+                    valorEstimado = "R$ 4.500,00";
+                    break;
+				case "PackOffice":
+                    valorEstimado = "R$ 100,00";
+                    break;
+				case "PackOfficeAll":
+                    valorEstimado = "R$ 150,00";
+                    break;
+				case "ManutecComputadores":
+                    valorEstimado = "R$ 100,00";
+                    break;
+				case "MontagemCompBasic":
+                    valorEstimado = "R$ 150,00";
+                    break;
+				case "MontagemGamer":
+                    valorEstimado = "R$ 150,00 + Configuração";
+                    break;
+				case "FormatPhone":
+                    valorEstimado = "R$ 80,00";
+                    break;
+				case "FormatPhoneDados":
+                    valorEstimado = "R$ 160,00";
+                    break;
+				case "Optimizer":
+                    valorEstimado = "R$ 80,00";
+                    break;
+				case "Rest":
+                    valorEstimado = "R$ 150,00";
+                    break;
+				case "Restmail":
+                    valorEstimado = "R$ 100,00";
+                    break;
+				case "RestIg":
+                    valorEstimado = "R$ 100,00";
+                    break;
+                default:
+                    valorEstimado = "Serviço não encontrado";
+            }
+
+            document.getElementById("orcamento").innerText = `Valor estimado: ${valorEstimado}`;
+            document.getElementById("whatsappLink").href = `https://wa.me/message/ANSLT5SPKWPNC1 de serviço: ${servico}, Valor estimado: ${valorEstimado}`;
+            document.getElementById("whatsappLink").style.display = "block"; // Exibir o link do WhatsApp
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Solicite um Serviço</h1>
+        <form onsubmit="event.preventDefault(); calcularOrcamento();">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="servico">Serviço desejado:</label>
+            <select id="servico" required>
+                <option value="CriacaoDesingv1">Criação de Curriculo</option>
+                <option value="CriacaoDesingv2">Criação de Logotipo</option>
+				<option value="CriacaoDesing">Criação de Arte Banner</option>
+                <option value="CriacaoSite">Criação de Site (Landing Page)</option>
+				<option value="CriacaoSiteEcomerce">Criação de Site Completo (Ecomerce)</option>
+				<option value="CriacaoSiteEnterprise">Criação de Software (Empresarial)</option>
+				<option value="PackOffice">Instalação e ativação do Pacote Office(Remoto)</option>
+				<option value="PackOfficeAll">Instalação e ativação do Pacote Office (Presencial)</option>
+				<option value="ManutecComputadores">Manutenção de Computador(Limpeza, Troca de Peças, Testes)</option>
+				<option value="MontagemCompBasic">Montagem de Computador (Mão de obra)</option>
+				<option value="MontagemGamer">Montagem completa do Computador (Orçamento + Mão de Obra)</option>
+				<option value="FormatPhone">Formatação de Celular(Restauração de Fabrica)</option>
+				<option value="FormatPhoneDados">Formatação e Backup dos Dados</option>
+				<option value="Optimizer">Otimização de celular e notebooks</option>
+				<option value="Rest">Restauração de Backup (Nuvem, HD externo, Google Drive etc.)</option>
+				<option value="RestIg">Recuperar Instagram/Hackeado (Ecomerce)</option>
+            </select>
+
+            <label for="mensagem">Mensagem adicional:</label>
+            <textarea id="mensagem"></textarea>
+
+            <button type="submit">Enviar Solicitação</button>
+        </form>
+
+        <div id="orcamento"></div>
+        <a id="whatsappLink" class="whatsapp" href="#" style="display:none;">Chamar no WhatsApp</a>
+    </div>
 </body>
 </html>
