@@ -87,43 +87,43 @@
                 case "CriacaoSite":
                     valorEstimado = "R$ 375,00";
                     break;
-				case "CriacaoSiteEcomerce":
-                    valorEstimado = "R$ 1.500,00";	
+                case "CriacaoSiteEcomerce":
+                    valorEstimado = "R$ 1.500,00";    
                     break;
-				case "CriacaoSiteEnterprise":
+                case "CriacaoSiteEnterprise":
                     valorEstimado = "R$ 4.500,00";
                     break;
-				case "PackOffice":
+                case "PackOffice":
                     valorEstimado = "R$ 100,00";
                     break;
-				case "PackOfficeAll":
+                case "PackOfficeAll":
                     valorEstimado = "R$ 150,00";
                     break;
-				case "ManutecComputadores":
+                case "ManutecComputadores":
                     valorEstimado = "R$ 100,00";
                     break;
-				case "MontagemCompBasic":
+                case "MontagemCompBasic":
                     valorEstimado = "R$ 150,00";
                     break;
-				case "MontagemGamer":
+                case "MontagemGamer":
                     valorEstimado = "R$ 150,00 + Configuração";
                     break;
-				case "FormatPhone":
+                case "FormatPhone":
                     valorEstimado = "R$ 80,00";
                     break;
-				case "FormatPhoneDados":
+                case "FormatPhoneDados":
                     valorEstimado = "R$ 160,00";
                     break;
-				case "Optimizer":
+                case "Optimizer":
                     valorEstimado = "R$ 80,00";
                     break;
-				case "Rest":
+                case "Rest":
                     valorEstimado = "R$ 150,00";
                     break;
-				case "Restmail":
+                case "Restmail":
                     valorEstimado = "R$ 100,00";
                     break;
-				case "RestIg":
+                case "RestIg":
                     valorEstimado = "R$ 100,00";
                     break;
                 default:
@@ -131,7 +131,8 @@
             }
 
             document.getElementById("orcamento").innerText = `Valor estimado: ${valorEstimado}`;
-            document.getElementById("whatsappLink").href = `https://wa.me/message/ANSLT5SPKWPNC1 de serviço: ${servico}, Valor estimado: ${valorEstimado}`;
+            const numeroWhatsApp = "5562993088589"; // Correção de erro 404 - Numero de WhatsApp 
+            document.getElementById("whatsappLink").href = `https://wa.me/${numeroWhatsApp}?text=Solicitação de serviço: ${servico}, Valor estimado: ${valorEstimado}`;
             document.getElementById("whatsappLink").style.display = "block"; // Exibir o link do WhatsApp
         }
     </script>
@@ -150,20 +151,20 @@
             <select id="servico" required>
                 <option value="CriacaoDesingv1">Criação de Curriculo</option>
                 <option value="CriacaoDesingv2">Criação de Logotipo</option>
-				<option value="CriacaoDesing">Criação de Arte Banner</option>
+                <option value="CriacaoDesing">Criação de Arte Banner</option>
                 <option value="CriacaoSite">Criação de Site (Landing Page)</option>
-				<option value="CriacaoSiteEcomerce">Criação de Site Completo (Ecomerce)</option>
-				<option value="CriacaoSiteEnterprise">Criação de Software (Empresarial)</option>
-				<option value="PackOffice">Instalação e ativação do Pacote Office(Remoto)</option>
-				<option value="PackOfficeAll">Instalação e ativação do Pacote Office (Presencial)</option>
-				<option value="ManutecComputadores">Manutenção de Computador(Limpeza, Troca de Peças, Testes)</option>
-				<option value="MontagemCompBasic">Montagem de Computador (Mão de obra)</option>
-				<option value="MontagemGamer">Montagem completa do Computador (Orçamento + Mão de Obra)</option>
-				<option value="FormatPhone">Formatação de Celular(Restauração de Fabrica)</option>
-				<option value="FormatPhoneDados">Formatação e Backup dos Dados</option>
-				<option value="Optimizer">Otimização de celular e notebooks</option>
-				<option value="Rest">Restauração de Backup (Nuvem, HD externo, Google Drive etc.)</option>
-				<option value="RestIg">Recuperar Instagram/Hackeado (Ecomerce)</option>
+                <option value="CriacaoSiteEcomerce">Criação de Site Completo (Ecomerce)</option>
+                <option value="CriacaoSiteEnterprise">Criação de Software (Empresarial)</option>
+                <option value="PackOffice">Instalação e ativação do Pacote Office(Remoto)</option>
+                <option value="PackOfficeAll">Instalação e ativação do Pacote Office (Presencial)</option>
+                <option value="ManutecComputadores">Manutenção de Computador(Limpeza, Troca de Peças, Testes)</option>
+                <option value="MontagemCompBasic">Montagem de Computador (Mão de obra)</option>
+                <option value="MontagemGamer">Montagem completa do Computador (Orçamento + Mão de Obra)</option>
+                <option value="FormatPhone">Formatação de Celular(Restauração de Fabrica)</option>
+                <option value="FormatPhoneDados">Formatação e Backup dos Dados</option>
+                <option value="Optimizer">Otimização de celular e notebooks</option>
+                <option value="Rest">Restauração de Backup (Nuvem, HD externo, Google Drive etc.)</option>
+                <option value="RestIg">Recuperar Instagram/Hackeado (Ecomerce)</option>
             </select>
 
             <label for="mensagem">Mensagem adicional:</label>
