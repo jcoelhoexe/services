@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>João Pedro | IT Analyst</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    .background-matrix {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1), transparent 70%), #000;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    canvas.matrix {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 40px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      background-color: #0ff;
+      margin: 0 auto 20px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: #000;
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #0ff;
+      text-shadow: 0 0 15px #0ff;
+    }
+
+    p.subtitle {
+      font-size: 1.2em;
+      letter-spacing: 4px;
+      color: #fff;
+      text-shadow: 0 0 10px #0ff;
+      margin-bottom: 50px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border: 2px solid #0ff;
+      border-radius: 30px;
+      background: transparent;
+      color: #fff;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    .btn:hover {
+      background: #0ff;
+      color: #000;
+      box-shadow: 0 0 30px #0ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-matrix"></div>
+  <canvas class="matrix"></canvas>
+
+  <header>
+    <img src="JPSOFT-LOGO.jpeg" alt="Logo da JP-Soft, empresa de tecnologia">
+    <h1>João Pedro</h1>
+    <p class="subtitle">IT - Analyst</p>
+    <nav>
+      <div class="button-group">
+        <a href="servicos.html" class="btn">Serviços Prestados</a>
+        <a href="orcamentos.html" class="btn">Orçamentos</a>
+        <a href="https://wa.me/+5562993088589" class="btn">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+    const canvas = document.querySelector("canvas.matrix");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    resizeCanvas();
+
+    const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 16;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#0ff";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 50);
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      columns = Math.floor(canvas.width / fontSize);
+      drops = Array(columns).fill(1);
+    });
+  </script>
+</body>
+</html>
