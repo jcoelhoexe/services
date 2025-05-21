@@ -18,21 +18,26 @@
     ul {
       list-style: none;
       padding: 0;
+      display: flex; /* Adicionado para usar flexbox */
+      flex-direction: column; /* Alinhamento vertical */
+      align-items: center; /* Centraliza os itens */
     }
     li {
-      margin: 15px 0;
-      padding: 15px;
+      margin: 10px 0; /* Reduzido para compactar as caixas */
+      padding: 10px; /* Reduzido para compactar as caixas */
       border: 2px solid #0ff;
       border-radius: 15px;
       box-shadow: 0 0 10px #0ff;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 600px; /* Largura máxima para as caixas */
+      width: 100%; /* Para que as caixas ocupem a largura disponível até o máximo */
     }
     a {
       color: #000;
       background-color: #0ff;
-      padding: 10px 20px;
+      padding: 8px 15px; /* Ajustado para um botão menor */
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
@@ -55,7 +60,7 @@
       <a href="https://wa.me/+5562993088589?text=Quero+restaurar+um+backup">Solicitar restauração de backup</a>
     </li>
     <li>
-      Recuperar Instagram Hackeado (E-commerce)
+      Recuperar Instagram Hackeado
       <a href="https://wa.me/+5562993088589?text=Quero+recuperar+meu+Instagram+hackeado">Solicitar recuperação de Instagram hackeado</a>
     </li>
   </ul>
