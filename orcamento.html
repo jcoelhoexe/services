@@ -4,32 +4,43 @@
   <meta charset="UTF-8">
   <title>Orçamentos</title>
   <style>
+    body {
+      background-color: #000;
+      color: #0ff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #0ff;
+    }
     ul {
       list-style: none;
       padding: 0;
+      display: flex; /* Adicionado para usar flexbox */
+      flex-direction: column; /* Alinhamento vertical */
+      align-items: center; /* Centraliza os itens */
     }
     li {
-      margin: 15px 0;
-      padding: 15px;
+      margin: 10px 0; /* Reduzido para compactar as caixas */
+      padding: 10px; /* Reduzido para compactar as caixas */
       border: 2px solid #0ff;
       border-radius: 15px;
       box-shadow: 0 0 10px #0ff;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: rgba(0, 0, 0, 0.6);
+      max-width: 600px; /* Largura máxima para as caixas */
+      width: 100%; /* Para que as caixas ocupem a largura disponível até o máximo */
     }
     a {
       color: #000;
       background-color: #0ff;
-      padding: 10px 20px;
+      padding: 8px 15px; /* Ajustado para um botão menor */
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
-      transition: background-color 0.3s;
-    }
-    a:hover {
-      background-color: #00ccff; /* Cor ao passar o mouse */
     }
   </style>
 </head>
@@ -60,7 +71,7 @@
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ0100101101";
     const fontSize = 16;
     const columns = canvas.width / fontSize;
     const drops = Array(Math.floor(columns)).fill(1);
